@@ -29,24 +29,9 @@ export const deleteSavedParagraph = (_id) => {
   }
 };
 
-export const approveParagraph = (data) => {
-  return dispatch => {
-    fetch('/api/paragraphs/setApproved/', {
-      method: 'PUT',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(handleResponce)
-      .then(function (res) {
-        dispatch(deleteSavedParagraph(res._id))
-      })
-  }
-};
 
+/* Middleware */
 
-/* Middleware  */
 
 export const fetchSavedParagraphs = (url) => {
   return dispatch => {
@@ -82,7 +67,21 @@ export function sendChanges(data) {
   }
 }
 
-/**/
+export const approveParagraph = (data) => {
+  return dispatch => {
+    fetch('/api/paragraphs/', {
+      method: 'PUT',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(handleResponce)
+      .then(function (res) {
+        dispatch(deleteSavedParagraph(res._id))
+      })
+  }
+};
 
 export const removeParagraph = (data) => {
   return dispatch => {
@@ -96,11 +95,8 @@ export const removeParagraph = (data) => {
     }).then(function(res){
       dispatch(deleteSavedParagraph(data._id))
     })
-
-    //.then(handleResponce)
   }
-
-}
+};
 
 export function handleResponce(response) {
   if (response.ok) {

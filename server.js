@@ -61,10 +61,17 @@ mongodb.MongoClient.connect(dbUrl, function(err, db) {
     }
   });
 
-  app.post('/api/paragraphs/', function(req, res){
-    //isApproved
-    console.log('GET')
+  app.get('/api/paragraphs/', function(req, res) {
+    db.collection('paragraphs').find({}).toArray((err, paragraphs) => {
+      if (err) {
+        res.status(500).json({ errors: { global: "Something went wrong" }});
+      } else {
+        res.json({ paragraphs });
+      }
+    })
+  });
 
+  app.post('/api/paragraphs/', function(req, res){
     const { articleUrl, originalText, usersText } = req.body;
 
     db.collection('paragraphs').insert({ articleUrl, originalText, usersText }, (err, result) => {
@@ -74,27 +81,13 @@ mongodb.MongoClient.connect(dbUrl, function(err, db) {
         res.json({ paragraph: result.ops[0]})
       }
     })
-
   });
 
-  app.get('/api/paragraphs/', function(req, res) {
-
-    db.collection('paragraphs').find({}).toArray((err, paragraphs) => {
-      if (err) {
-        res.status(500).json({ errors: { global: "Something went wrong" }});
-      } else {
-        res.json({ paragraphs });
-      }
-    })
-
-  });
-
-  app.put('/api/paragraphs/setApproved/', function(req, res){
-
+  app.put('/api/paragraphs/', function(req, res){
     const { _id, isApproved } = req.body;
 
     db.collection('paragraphs').update(
-      { _id: _id },
+      { _id: new mongodb.ObjectId(_id) },
       { $set: { isApproved: isApproved } },
       (err, result) => {
       if (err) {
@@ -103,23 +96,20 @@ mongodb.MongoClient.connect(dbUrl, function(err, db) {
         res.json({ _id });
       }
     })
-
   });
 
-
-  app.put('/api/article/', function(req, res){
+  app.delete('/api/paragraphs/', function(req, res){
     const { _id, isApproved } = req.body;
 
-    db.collection('paragraphs').update(
-      { _id },
-      { $set: { isApproved } },
+    db.collection('paragraphs').remove(
+      { _id: new mongodb.ObjectId(_id) },
       (err, result) => {
-      if (err) {
-        res.status(500).json({ errors: { global: "Something went wrong" }});
-      } else {
-        res.json({ paragraph: result.ops[0]})
-      }
-    })
+        if (err) {
+          res.status(500).json({ errors: { global: "Something went wrong" }});
+        } else {
+          res.json({ _id });
+        }
+      })
   });
 
 });

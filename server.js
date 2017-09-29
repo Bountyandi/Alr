@@ -57,7 +57,6 @@ mongodb.MongoClient.connect(dbUrl, function(err, db) {
       res
         .status(409)
         .send('Please add valid URL')
-
     }
   });
 
@@ -114,11 +113,6 @@ mongodb.MongoClient.connect(dbUrl, function(err, db) {
 
 });
 
-
-app.listen(PORT, function() {
-  console.log('Listening on port ' + PORT + '...');
-});
-
 function parsePage(url){
   if (!url) { return }
   let promise = new Promise(function(resolve, reject) {
@@ -155,3 +149,8 @@ function parseHandler(err, res, page){
 
   return { title, paragraphs }
 }
+
+
+app.listen(PORT, function() {
+  console.log('Listening on port ' + PORT + '...');
+});

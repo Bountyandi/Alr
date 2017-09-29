@@ -2,7 +2,7 @@ import {
   SET_SAVED_PARAGRAPHS,
   DELETE_SAVED_PARAGRAPH,
   APPROVE_PARAGRAPH
-} from '../constants/ActionsTypes'
+} from '../constants/ActionsTypes';
 
 const initialState = [];
 

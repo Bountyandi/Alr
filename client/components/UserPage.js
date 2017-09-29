@@ -6,11 +6,8 @@ import styles from './styles.css';
 const UserPage = () => (
   <div>
     <h2>User Page</h2>
-
     <ParserForm />
-
     <PropositionsList />
-
   </div>
 );
 

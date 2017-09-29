@@ -1,6 +1,6 @@
 import {
   SET_URL
-} from '../constants/ActionsTypes'
+} from '../constants/ActionsTypes';
 
 const initialState = '';
 

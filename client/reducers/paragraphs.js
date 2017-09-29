@@ -1,6 +1,6 @@
 import {
   SET_PARAGRAPHS
-} from '../constants/ActionsTypes'
+} from '../constants/ActionsTypes';
 
 const initialState = [];
 

@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { sendChanges } from '../actions/actions'
-import EditableParagraph from '../components/EditableParagraph'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { sendChanges } from '../actions/actions';
+import EditableParagraph from '../components/EditableParagraph';
 
 class PropositionsList extends Component {
 

@@ -18,7 +18,7 @@ class AdminList extends Component {
   render() {
     const { savedParagraphs } = this.props;
 
-    const listItems = savedParagraphs.map((item, i) =>{
+    const listItems = savedParagraphs.map((item, i) => {
       if (!item.isApproved) {
         return <AdminParagraph
           key={i}

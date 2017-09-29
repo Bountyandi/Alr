@@ -4,6 +4,13 @@ import styles from './styles.css';
 
 export default class AdminParagraph extends Component {
 
+  constructor(){
+    super();
+
+    this.approve = this.approve.bind(this);
+    this.remove = this.remove.bind(this);
+  }
+
   static propTypes = {
     originalText: PropTypes.string.isRequired,
     usersText: PropTypes.string.isRequired,
@@ -12,9 +19,18 @@ export default class AdminParagraph extends Component {
     approveParagraph: PropTypes.func.isRequired
   };
 
+  approve(){
+    let _id = this.props._id;
+    this.props.approveParagraph({ _id, isApproved: true });
+  }
+
+  remove(){
+    let _id = this.props._id;
+    this.props.removeParagraph({ _id });
+  }
 
   render() {
-    const { _id, originalText, usersText, articleUrl } = this.props;
+    const { originalText, usersText, articleUrl } = this.props;
 
     return (
       <div className={styles.paragraphContainer}>
@@ -26,10 +42,8 @@ export default class AdminParagraph extends Component {
         {usersText}
 
         <br/>
-        <button className={styles.button} onClick={() => this.props.removeParagraph({ _id })}>DELETE</button>
-        <button className={styles.button} onClick={() => {
-          this.props.approveParagraph({ _id, isApproved: true })}}>APPROVE</button>
-
+        <button className={styles.button} onClick={this.remove}>DELETE</button>
+        <button className={styles.button} onClick={this.approve}>APPROVE</button>
 
       </div>
     )

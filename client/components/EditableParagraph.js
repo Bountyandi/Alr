@@ -1,17 +1,21 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'//
-
-import styles from './styles.css'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import styles from './styles.css';
 
 
 export default class EditableParagraph extends Component {
+
+  constructor(){
+    super();
+
+    this.send = this.send.bind(this);
+  }
 
   static propTypes = {
     content: PropTypes.string.isRequired,
     articleUrl: PropTypes.string.isRequired,
     sendChanges: PropTypes.func.isRequired
   };
-
 
   send(){
     this.props.sendChanges({
@@ -41,7 +45,7 @@ export default class EditableParagraph extends Component {
 
         <button
           className={styles.button}
-          onClick={() => this.send()}>Send Changes</button>
+          onClick={this.send}>Send Changes</button>
 
       </div>
     )

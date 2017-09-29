@@ -16,27 +16,17 @@ class ParserForm extends Component {
     fetchParagraphs: PropTypes.func.isRequired
   };
 
-
-  componentDidMount(){
-    let url = 'https://www.dagbladet.no/kjendis/supermodellen-ble-beskyldt-for-a-ikke-tipse-etter-et-barbesok-na-svarer-hun-pa-kritikken/68573788'
-
-    this.props.fetchParagraphs(url);
-  }
-
   startParsing(){
-
     let url = this.input.value;
 
     if (url) {
       this.props.fetchParagraphs(url);
     } else {
-      console.log('Please paste url');
+      console.error('Please paste url');
     }
-
   }
 
   render() {
-    let TEMP_URL = 'https://www.dagbladet.no/kjendis/supermodellen-ble-beskyldt-for-a-ikke-tipse-etter-et-barbesok-na-svarer-hun-pa-kritikken/68573788'
     return (
       <div className={styles.formContainer}>
 
@@ -45,7 +35,6 @@ class ParserForm extends Component {
         <input
           className={styles.textInput}
           type='text'
-          defaultValue={TEMP_URL}
           ref={(input) => { this.input = input; }}
         />
         <br />

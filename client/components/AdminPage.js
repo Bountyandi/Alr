@@ -5,9 +5,7 @@ import styles from './styles.css';
 const AdminPage = () => (
   <div>
     <h2>Admin Page</h2>
-
     <AdminList />
-
   </div>
 );
 

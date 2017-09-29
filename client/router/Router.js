@@ -1,13 +1,12 @@
-import React from 'react'
+import React from 'react';
+import styles from './styles.css';
+import UserPage from '../components/UserPage';
+import AdminPage from '../components/AdminPage';
 import {
   BrowserRouter,
   Route,
   Link
-} from 'react-router-dom'
-import styles from './styles.css'
-
-import UserPage from '../components/UserPage'
-import AdminPage from '../components/AdminPage'
+} from 'react-router-dom';
 
 const Router = () => (
   <BrowserRouter>
@@ -28,4 +27,3 @@ const Router = () => (
 );
 
 export default Router
-

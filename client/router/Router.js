@@ -1,11 +1,10 @@
-// from  https://reacttraining.com/react-router/web/example/basic
-
 import React from 'react'
 import {
   BrowserRouter,
   Route,
   Link
 } from 'react-router-dom'
+import styles from './styles.css'
 
 import UserPage from '../components/UserPage'
 import AdminPage from '../components/AdminPage'
@@ -13,8 +12,12 @@ import AdminPage from '../components/AdminPage'
 const Router = () => (
   <BrowserRouter>
     <div>
-      <Link to='/'>User</Link>
-      <Link to='/admin'>Admin</Link>
+      <Link
+        className={styles.menuItem}
+        to='/'>User</Link>
+      <Link
+        className={styles.menuItem}
+        to='/admin'>Admin</Link>
 
       <hr/>
 

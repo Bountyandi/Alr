@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import { fetchParagraphs } from '../actions/actions'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { fetchParagraphs } from '../actions/actions';
+import styles from './styles.css';
 
 class ParserForm extends Component {
 
@@ -13,7 +14,7 @@ class ParserForm extends Component {
 
   static propTypes = {
     fetchParagraphs: PropTypes.func.isRequired
-  }
+  };
 
 
   componentDidMount(){
@@ -23,8 +24,6 @@ class ParserForm extends Component {
   }
 
   startParsing(){
-
-
 
     let url = this.input.value;
 
@@ -39,9 +38,12 @@ class ParserForm extends Component {
   render() {
     let TEMP_URL = 'https://www.dagbladet.no/kjendis/supermodellen-ble-beskyldt-for-a-ikke-tipse-etter-et-barbesok-na-svarer-hun-pa-kritikken/68573788'
     return (
-      <div>
+      <div className={styles.formContainer}>
+
         <p>Put URL for parsing</p>
+
         <input
+          className={styles.textInput}
           type='text'
           defaultValue={TEMP_URL}
           ref={(input) => { this.input = input; }}
@@ -53,8 +55,6 @@ class ParserForm extends Component {
       </div>
     )
   }
-
 }
-
 
 export default connect(null, { fetchParagraphs })(ParserForm)

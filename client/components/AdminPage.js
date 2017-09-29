@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import AdminList from '../containers/AdminList'
+import AdminList from '../containers/AdminList';
+import styles from './styles.css';
 
 const AdminPage = () => (
   <div>
-    <h3>Admin Page</h3>
+    <h2>Admin Page</h2>
 
     <AdminList />
 

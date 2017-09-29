@@ -1,0 +1,27 @@
+body {
+  background-color: #ededed;
+  font-family: "Open Sans";
+}
+
+.container {
+  margin: auto;
+  width: 55%;
+  border: 1px solid #e0e5e4;
+  padding: 15px;
+}
+
+.textInput {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 7px 0 7px 0;
+}
+
+
+.formContainer {
+  border: 2px double #dce4f2;
+  padding: 15px;
+  margin: 20px 0 20px 0;
+  overflow: hidden;
+}

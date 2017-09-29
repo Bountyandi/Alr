@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'//
 
+import styles from './styles.css'
+
 
 export default class EditableParagraph extends Component {
 
@@ -23,12 +25,12 @@ export default class EditableParagraph extends Component {
     const { content } = this.props;
 
     return (
-      <div>
-        <p>ORIGINAL TEXT</p>
-        {content}
-        <br/>
+      <div className={styles.paragraphContainer}>
 
-        <p>USERS VERSION</p>
+        <p className={styles.subheader}>ORIGINAL TEXT</p>
+        {content}
+        <p className={styles.subheader}>USERS VERSION</p>
+
         <textarea
           id='changedContent'
           ref={(textarea) => { this.textarea = textarea; }}
@@ -37,12 +39,9 @@ export default class EditableParagraph extends Component {
           defaultValue={content}
         />
 
-        <br/>
-
-        <button onClick={() => this.send()}>Send Changes</button>
-        <br/>
-        <br/>
-        <br/>
+        <button
+          className={styles.button}
+          onClick={() => this.send()}>Send Changes</button>
 
       </div>
     )

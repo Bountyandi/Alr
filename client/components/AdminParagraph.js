@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './styles.css';
 
 export default class AdminParagraph extends Component {
 
@@ -16,22 +17,19 @@ export default class AdminParagraph extends Component {
     const { _id, originalText, usersText, articleUrl } = this.props;
 
     return (
-      <div>
-        <p>ORIGINAL TEXT</p>
+      <div className={styles.paragraphContainer}>
+        <p className={styles.subheader}>ORIGINAL TEXT</p>
         {originalText}
         <br/>
 
-        <p>USERS VERSION</p>
+        <p className={styles.subheader}>USERS VERSION</p>
         {usersText}
 
         <br/>
-        <button className='' onClick={() => this.props.removeParagraph({ _id })}>DELETE</button>
-        <button className='' onClick={() => {
+        <button className={styles.button} onClick={() => this.props.removeParagraph({ _id })}>DELETE</button>
+        <button className={styles.button} onClick={() => {
           this.props.approveParagraph({ _id, isApproved: true })}}>APPROVE</button>
 
-        <br/>
-        <br/>
-        <br/>
 
       </div>
     )

@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
-import ParserForm from '../containers/ParserForm'
-import PropositionsList from '../containers/PropositionsList'
+import React, { Component } from 'react';
+import ParserForm from '../containers/ParserForm';
+import PropositionsList from '../containers/PropositionsList';
+import styles from './styles.css';
 
 const UserPage = () => (
   <div>
-    <h3>User Page</h3>
+    <h2>User Page</h2>
 
     <ParserForm />
 

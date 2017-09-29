@@ -1,0 +1,36 @@
+textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    width: 100%;
+}
+
+.subheader {
+    font-weight: bold;
+    font-size: 15px;
+    color: #84c8f9;
+    margin: 4px 0 4px 0;
+}
+
+.paragraphContainer {
+    border: 1px double #dce4f2;
+    padding: 5px;
+    margin: 10px 0 5px 0;
+    overflow: hidden;
+}
+
+.button{
+    float: right;
+    margin: 3px 8px 0 0;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 40px;
+    color: #446984;
+    margin: 10px 0 15px 0;
+}
+
+
+

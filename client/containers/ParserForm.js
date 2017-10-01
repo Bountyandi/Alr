@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchParagraphs } from '../actions/actions';
+import { fetchParagraphs } from '../actions/asyncActions';
+import { setLoading } from '../actions/actions';
 import styles from './styles.css';
 
-class ParserForm extends Component {
+class ParserForm extends PureComponent {
 
   constructor(props){
     super(props);
@@ -20,6 +21,7 @@ class ParserForm extends Component {
     let url = this.input.value;
 
     if (url) {
+      this.props.setLoading(true);
       this.props.fetchParagraphs(url);
     } else {
       console.error('Please paste url');
@@ -46,4 +48,4 @@ class ParserForm extends Component {
   }
 }
 
-export default connect(null, { fetchParagraphs })(ParserForm)
+export default connect(null, { fetchParagraphs, setLoading })(ParserForm)

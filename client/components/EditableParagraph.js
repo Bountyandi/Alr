@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.css';
 
 
-export default class EditableParagraph extends Component {
+export default class EditableParagraph extends PureComponent {
 
   constructor(){
     super();

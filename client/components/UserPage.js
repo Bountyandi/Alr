@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import ParserForm from '../containers/ParserForm';
 import PropositionsList from '../containers/PropositionsList';
 import styles from './styles.css';

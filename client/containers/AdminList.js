@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchSavedParagraphs, removeParagraph, approveParagraph } from '../actions/actions';
+import { fetchSavedParagraphs, removeParagraph, approveParagraph } from '../actions/asyncActions';
 import AdminParagraph from '../components/AdminParagraph';
 
-class AdminList extends Component {
+class AdminList extends PureComponent {
 
   static propTypes = {
     removeParagraph: PropTypes.func.isRequired,

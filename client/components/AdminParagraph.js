@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.css';
 
-export default class AdminParagraph extends Component {
+export default class AdminParagraph extends PureComponent {
 
   constructor(){
     super();

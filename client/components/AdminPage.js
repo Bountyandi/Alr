@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import AdminList from '../containers/AdminList';
 import styles from './styles.css';
 

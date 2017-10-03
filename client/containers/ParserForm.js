@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchParagraphs } from '../actions/asyncActions';
+import { getParagraphs } from '../actions/asyncActions';
 import { setLoading } from '../actions/actions';
 import styles from './styles.css';
 
@@ -14,7 +14,7 @@ class ParserForm extends PureComponent {
   }
 
   static propTypes = {
-    fetchParagraphs: PropTypes.func.isRequired
+    getParagraphs: PropTypes.func.isRequired
   };
 
   startParsing(){
@@ -22,7 +22,7 @@ class ParserForm extends PureComponent {
 
     if (url) {
       this.props.setLoading(true);
-      this.props.fetchParagraphs(url);
+      this.props.getParagraphs(url);
     } else {
       console.error('Please paste url');
     }
@@ -48,4 +48,4 @@ class ParserForm extends PureComponent {
   }
 }
 
-export default connect(null, { fetchParagraphs, setLoading })(ParserForm)
+export default connect(null, { getParagraphs, setLoading })(ParserForm)

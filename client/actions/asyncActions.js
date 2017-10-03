@@ -6,50 +6,46 @@ import {
   setLoading
 } from './actions'
 
-export const fetchSavedParagraphs = (url) => {
-  return dispatch => {
-    fetch(`api/paragraphs/`)
-      .then(handleResponce)
-      .then(data => {
-        dispatch(setSavedParagraphs(data.paragraphs));
-      })
-  }
-};
+import API from './api'
 
-export const fetchParagraphs = (url) => {
+
+export const getParagraphs = (urlParam) => {
+  let url = `/api/article/${urlParam}`;
   return dispatch => {
-    fetch(`api/article/${url}`)
+    API.get(url)
       .then(handleResponce)
-      .then(data => {
+      .then(res => {
         dispatch(setLoading(false));
-        dispatch(setURL(data.articleUrl));
-        dispatch(setParagraphs(data.paragraphs));
+        dispatch(setURL(res.articleUrl));
+        dispatch(setParagraphs(res.paragraphs));
       })
   }
 };
 
-export function sendChanges(data) {
+export const getSavedParagraphs = () => {
+  let url = '/api/paragraphs/';
   return dispatch => {
-    fetch('/api/paragraphs/', {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
+    API.get(url)
+      .then(handleResponce)
+      .then(res => {
+        dispatch(setSavedParagraphs(res.paragraphs));
+      })
+  }
+};
+
+export const sendChanges = (data) => {
+  let url = '/api/paragraphs/';
+  return dispatch => {
+    API.post(url, data)
       .then(handleResponce)
   }
-}
+};
+
 
 export const approveParagraph = (data) => {
+  let url = '/api/paragraphs/';
   return dispatch => {
-    fetch('/api/paragraphs/', {
-      method: 'PUT',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
+    API.put(url, data)
       .then(handleResponce)
       .then(function (res) {
         dispatch(deleteSavedParagraph(res._id))
@@ -58,15 +54,10 @@ export const approveParagraph = (data) => {
 };
 
 export const removeParagraph = (data) => {
-    return dispatch => {
-    fetch('/api/paragraphs/', {
-      method: 'DELETE',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json' //,
-        //"Accept": "application/json",
-      }
-    }).then(function(res){
+  let url = '/api/paragraphs/';
+  return dispatch => {
+    API.delete(url, data)
+      .then(function (res) {
       dispatch(deleteSavedParagraph(data._id))
     })
   }

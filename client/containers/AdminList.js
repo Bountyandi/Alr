@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchSavedParagraphs, removeParagraph, approveParagraph } from '../actions/asyncActions';
+import { getSavedParagraphs, removeParagraph, approveParagraph } from '../actions/asyncActions';
 import AdminParagraph from '../components/AdminParagraph';
 
 class AdminList extends PureComponent {
@@ -12,7 +12,7 @@ class AdminList extends PureComponent {
   };
 
   componentDidMount(){
-    this.props.fetchSavedParagraphs();
+    this.props.getSavedParagraphs();
   }
 
   render() {
@@ -47,7 +47,7 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, {
-  fetchSavedParagraphs,
+  getSavedParagraphs,
   removeParagraph,
   approveParagraph
 })(AdminList)

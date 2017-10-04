@@ -98,7 +98,7 @@ mongodb.MongoClient.connect(dbUrl, function(err, db) {
   });
 
   app.delete('/api/paragraphs/', function(req, res){
-    const { _id, isApproved } = req.body;
+    const { _id } = req.body;
 
     db.collection('paragraphs').remove(
       { _id: new mongodb.ObjectId(_id) },

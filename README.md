@@ -9,6 +9,7 @@ Tech:
 React, Redux, ReactRouter, ES6, Webpack etc
 
 Install:
+
 0. git clone https://github.com/Bountyandi/Alr.git
 1. start mongo
 2. npm start
